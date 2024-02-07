@@ -11,7 +11,7 @@ public class SplineMovement : AbstractSpline
     public bool loop = true;
 
     [Range(0, 1)]
-    [SerializeField] float t = 0.0f;
+    [SerializeField]public float t = 0.0f;
 
 
     private void Update()

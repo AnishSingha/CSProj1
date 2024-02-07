@@ -11,7 +11,7 @@ public class InputManager : MonoBehaviour
     private int InputCount = 0;
 
     [SerializeField] public VideoPlayer Player;
-    [SerializeField] public Image VideoPlayer;
+    [SerializeField] public GameObject phone;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour
     }
     void Update()
     {
-        if (InputCount < 1)
+        if (InputCount <= 1)
         {
             RotateCamera();
 
@@ -34,12 +34,12 @@ public class InputManager : MonoBehaviour
     public void RotateCamera()
     {
         
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) & SplineMovement.t == 1)
         {
             InputCount++;   
             transform.Rotate(Vector3.right , 20f);
             Player.enabled = true;
-            VideoPlayer.enabled = true;
+            phone.SetActive(true);
         }
     }
 }

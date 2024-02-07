@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Splines;
 
-public class SplineMovement : MonoBehaviour
+public class SplineMovement : AbstractSpline
 {
     public SplineContainer splineContainer;
     public float speed = 2.0f;

@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
 
     [SerializeField] SplineMovement SplineMovement;
     private int InputCount = 0;
+    private bool canSwitchScene;
 
     [SerializeField] public VideoPlayer Player;
     [SerializeField] public GameObject phone;
+    [SerializeField] public GameObject SwitchScenetext;
+
 
     private void Start()
     {
@@ -19,6 +23,8 @@ public class InputManager : MonoBehaviour
     }
     void Update()
     {
+        CanSwitchScene();
+
         if (InputCount <= 1)
         {
             RotateCamera();
@@ -28,7 +34,7 @@ public class InputManager : MonoBehaviour
         {
             SplineMovement.enabled = false;
         }
-
+        
     }
 
     public void RotateCamera()
@@ -40,6 +46,26 @@ public class InputManager : MonoBehaviour
             transform.Rotate(Vector3.right , 20f);
             Player.enabled = true;
             phone.SetActive(true);
+            StartCoroutine(SwitchSceneCountdownCourotine());
+        }
+    }
+
+    public IEnumerator SwitchSceneCountdownCourotine()
+    {
+        yield return new WaitForSeconds(19f);
+        canSwitchScene = true;
+
+    }
+    public void CanSwitchScene()
+    {
+        
+        if (canSwitchScene == true)
+        {
+            SwitchScenetext.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.R))
+            {                
+                SceneManager.LoadScene("CrimeScene");
+            }
         }
     }
 }

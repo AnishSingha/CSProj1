@@ -10,6 +10,10 @@ public class FirstPersonCamera : MonoBehaviour
 
     private float rotationX = 0f;
     private float rotationY = 0f;
+
+   
+
+
     void Update()
     {
         float rotLeftRight = Input.GetAxis("Mouse X");
@@ -30,5 +34,13 @@ public class FirstPersonCamera : MonoBehaviour
         rotationY = Mathf.Clamp(rotationY, -maxLookleftAngle, maxLookrightAngle);
 
         transform.parent.rotation = Quaternion.Euler(0f, rotationY, 0f);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        
+
     }
 }

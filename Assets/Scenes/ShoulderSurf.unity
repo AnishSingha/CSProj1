@@ -14737,6 +14737,37 @@ MonoBehaviour:
   speed: 0.014
   loop: 1
   t: 0
+--- !u!1 &1324318597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1324318598}
+  m_Layer: 0
+  m_Name: MissionCompleteUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1324318598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324318597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1342728635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f482d2f3d7cb83748a52395191bde443, type: 3}
@@ -16058,6 +16089,7 @@ MonoBehaviour:
   Player: {fileID: 192257300}
   phone: {fileID: 224692254}
   SwitchScenetext: {fileID: 191992515}
+  SuccessfulUI: {fileID: 1324318597}
 --- !u!1 &1466245441
 GameObject:
   m_ObjectHideFlags: 0
@@ -27882,3 +27914,4 @@ SceneRoots:
   - {fileID: 1791714463}
   - {fileID: 1592408928}
   - {fileID: 1941031531}
+  - {fileID: 1324318598}

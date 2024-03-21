@@ -15,6 +15,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] public VideoPlayer Player;
     [SerializeField] public GameObject phone;
     [SerializeField] public GameObject SwitchScenetext;
+    [SerializeField] public GameObject SuccessfulUI;
 
 
     private void Start()
@@ -47,6 +48,7 @@ public class InputManager : MonoBehaviour
             Player.enabled = true;
             phone.SetActive(true);
             StartCoroutine(SwitchSceneCountdownCourotine());
+            SuccessfulUI.SetActive(true);
         }
     }
 

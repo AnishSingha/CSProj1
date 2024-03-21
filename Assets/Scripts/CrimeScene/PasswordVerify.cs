@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PasswordVerify : MonoBehaviour
@@ -28,4 +29,13 @@ public class PasswordVerify : MonoBehaviour
 
         }
     }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            SceneManager.LoadScene("VictimCase");
+        }
+    }
+
 }

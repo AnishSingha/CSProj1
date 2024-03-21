@@ -155,6 +155,8 @@ MonoBehaviour:
   passWord: {fileID: 689763861}
   correctPassword: {fileID: 605317558}
   IncorrectPassword: {fileID: 1529668314}
+  NextSceneText: {fileID: 1909245585}
+  CanSwitchScene: 0
 --- !u!4 &57369855
 Transform:
   m_ObjectHideFlags: 0
@@ -1482,7 +1484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1909245586
 RectTransform:
   m_ObjectHideFlags: 0

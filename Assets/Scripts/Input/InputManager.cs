@@ -15,15 +15,23 @@ public class InputManager : MonoBehaviour
     [SerializeField] public VideoPlayer Player;
     [SerializeField] public GameObject phone;
     [SerializeField] public GameObject SwitchScenetext;
-    [SerializeField] public GameObject SuccessfulUI;
-
+    [SerializeField] public GameObject GameStartUI;
+    public GameObject PressE;
+    bool pressedE = false;
 
     private void Start()
     {
+        Time.timeScale = 0.0f;
         SplineMovement = GetComponent<SplineMovement>();
     }
     void Update()
     {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            Time.timeScale = 1.0f;
+            GameStartUI.SetActive(false);
+        }
+
         CanSwitchScene();
 
         if (InputCount <= 1)
@@ -33,8 +41,19 @@ public class InputManager : MonoBehaviour
         }
         if (SplineMovement.t == 1)
         {
+            
+            if (pressedE == false)
+            {
+                PressE.SetActive(true);
+                
+            }
             SplineMovement.enabled = false;
         }
+        if (pressedE == true)
+        {
+            PressE.SetActive(false);
+        }
+
         
     }
 
@@ -48,26 +67,32 @@ public class InputManager : MonoBehaviour
             Player.enabled = true;
             phone.SetActive(true);
             StartCoroutine(SwitchSceneCountdownCourotine());
-            SuccessfulUI.SetActive(true);
+            pressedE = true;
         }
     }
 
     public IEnumerator SwitchSceneCountdownCourotine()
     {
+       
         yield return new WaitForSeconds(19f);
         canSwitchScene = true;
+        
 
     }
+
     public void CanSwitchScene()
     {
         
         if (canSwitchScene == true)
         {
             SwitchScenetext.SetActive(true);
+
             if (Input.GetKeyDown(KeyCode.R))
             {                
                 SceneManager.LoadScene("CrimeScene");
             }
         }
     }
+
+    
 }

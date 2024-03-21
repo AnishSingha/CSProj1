@@ -11,7 +11,11 @@ public class PasswordVerify : MonoBehaviour
     [SerializeField] public TMP_InputField passWord;
     [SerializeField] GameObject correctPassword;
     [SerializeField] GameObject IncorrectPassword;
-    
+    [SerializeField] GameObject NextSceneText;
+
+    [HideInInspector]public bool CanSwitchScene = false;
+
+
     public void VerifyPassword()
     {
         if (passWord.text == "Dontdisturbme12345")
@@ -19,6 +23,7 @@ public class PasswordVerify : MonoBehaviour
             Debug.Log("Correct Password");
             correctPassword.SetActive(true);
             IncorrectPassword.SetActive(false);
+            CanSwitchScene = true;
 
         }
         else
@@ -30,12 +35,19 @@ public class PasswordVerify : MonoBehaviour
         }
     }
 
+   
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (CanSwitchScene == true)
         {
-            SceneManager.LoadScene("VictimCase");
+            NextSceneText.SetActive(true);
+            if (Input.GetKey(KeyCode.Space))
+            {
+
+                SceneManager.LoadScene("VictimCase");
+            }
         }
+        
     }
 
 }

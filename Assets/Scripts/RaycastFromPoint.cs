@@ -16,12 +16,24 @@ public class RaycastFromPoint : MonoBehaviour
     public GameObject Awareness;
     public GameObject UseSpaceHint;
 
-    public SplineMovement splineMovement;
+    [SerializeField] GameObject Welcome;
+    [SerializeField] GameObject Success;
+    [SerializeField] GameObject Finish;
+    [SerializeField] GameObject ShowHide;
+
 
     private int shooCount = 0;
 
-    
-    
+    private void Start()
+    {
+        StartCoroutine(StartScene());
+    }
+
+    IEnumerator StartScene()
+    {
+        yield return new WaitForSeconds(4f);
+        Welcome.SetActive(false);
+    }
 
     void Update()
     {
@@ -43,12 +55,12 @@ public class RaycastFromPoint : MonoBehaviour
                     excuseMeButton.SetActive(false);
 
 
-                    twoFactorAuthentication.SetActive(true);
-                    quitIcon.SetActive(true);
-                    UseDiffComb.SetActive(true);
+                    
 
                     Awareness.SetActive(false);
                     UseSpaceHint.SetActive(false);
+
+                    StartCoroutine(Successfull());
                 }
                 if (shooCount >= 1)
                 {
@@ -76,6 +88,29 @@ public class RaycastFromPoint : MonoBehaviour
         
         yield return new WaitForSeconds(4f);
         animator.SetTrigger("Idle");
+    }
+
+    public IEnumerator Successfull()
+    {
+        yield return new WaitForSeconds(3f);
+        Success.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        Success.SetActive(false);
+        twoFactorAuthentication.SetActive(true);
+        UseDiffComb.SetActive(true);
+        ShowHide.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        //twoFactorAuthentication.SetActive(false);
+        //UseDiffComb.SetActive(false);
+        //Finish.SetActive(true);
+        //yield return new WaitForSeconds(3f);
+
+
+        quitIcon.SetActive(true);
+
+        
+
+
     }
 }
 
